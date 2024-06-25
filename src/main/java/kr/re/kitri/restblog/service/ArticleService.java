@@ -30,4 +30,14 @@ public class ArticleService {
     public Article registArticle(Article article) {
         return articleRepository.insertArticle(article);
     }
+
+    // 4. 글 수정
+    public Article modifyArticle(Article article) {
+        return articleRepository.updateArticle(article);
+    }
+
+    // 5. 글 삭제
+    public void removeArticle(long articleId) {
+        articleRepository.deleteArticle(articleId);
+    }
 }

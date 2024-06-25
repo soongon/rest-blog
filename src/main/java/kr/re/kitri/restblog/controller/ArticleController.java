@@ -30,7 +30,13 @@ public class ArticleController {
         return articleService.registArticle(article);
     }
 
-    // @PutMapping("/api/articles") // 글 수정
+    @PutMapping("/api/articles") // 글 수정
+    public Article modifyArticle(@RequestBody Article article) {
+        return articleService.modifyArticle(article);
+    }
 
-    // @DeleteMapping("/api/articles/{articleId}") // 글 삭제
+    @DeleteMapping("/api/articles/{articleId}") // 글 삭제
+    public void removeArticle(@PathVariable long articleId) {
+        articleService.removeArticle(articleId);
+    }
 }

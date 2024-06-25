@@ -25,14 +25,22 @@ public class ArticleRepository {
         return new Article(id, "가짜", "레플", 15);
     }
 
+    // insert article
     public Article insertArticle(Article article) {
         System.out.println("정상적으로 인서트 되었습니다.");
         return article;
     }
 
-    // insert article
-
     // update article
+    public Article updateArticle(Article article) {
+        System.out.println("정상적으로 업데이트 됬습니다.");
+        return article;
+    }
 
     // delete article
+    public void deleteArticle(long articleId) {
+        // DELETE FROM ARTICLE WHERE ID = :articleId
+        System.out.println("정상적으로 삭제 완료");
+    }
+
 }
