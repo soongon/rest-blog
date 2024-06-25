@@ -25,7 +25,10 @@ public class ArticleController {
         return articleService.getArticleById(articleId);
     }
 
-    // @PostMapping("/api/articles") // 글 등록
+    @PostMapping("/api/articles") // 글 등록 .. json 글데이터를 자바 객체(모델)로 변환
+    public Article registArticle(@RequestBody Article article) {
+        return articleService.registArticle(article);
+    }
 
     // @PutMapping("/api/articles") // 글 수정
 

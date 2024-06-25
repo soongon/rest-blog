@@ -25,6 +25,11 @@ public class ArticleRepository {
         return new Article(id, "가짜", "레플", 15);
     }
 
+    public Article insertArticle(Article article) {
+        System.out.println("정상적으로 인서트 되었습니다.");
+        return article;
+    }
+
     // insert article
 
     // update article

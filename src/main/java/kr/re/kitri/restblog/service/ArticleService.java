@@ -25,4 +25,9 @@ public class ArticleService {
         // 원래는 글데이터를 DB에서 조회 후 데이터를 전송, but 지금은 페이크로 전달
         return articleRepository.selectArticleById(id);
     }
+
+    // 3. 글 등록
+    public Article registArticle(Article article) {
+        return articleRepository.insertArticle(article);
+    }
 }
