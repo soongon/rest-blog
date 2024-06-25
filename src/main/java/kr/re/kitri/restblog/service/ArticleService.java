@@ -2,17 +2,18 @@ package kr.re.kitri.restblog.service;
 
 import kr.re.kitri.restblog.model.Article;
 import kr.re.kitri.restblog.repository.ArticleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class ArticleService {
 
-    @Autowired
-    private ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository;
 
     // 실제 기능(설계상의 기능, 요구사항)이 포함된다.
     // 1. 글 전체보기.

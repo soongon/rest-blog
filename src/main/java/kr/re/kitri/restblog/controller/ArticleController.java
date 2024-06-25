@@ -2,6 +2,7 @@ package kr.re.kitri.restblog.controller;
 
 import kr.re.kitri.restblog.model.Article;
 import kr.re.kitri.restblog.service.ArticleService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 public class ArticleController {
 
-    @Autowired
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
     @GetMapping("/api/articles") // 글 전체보기
     public ResponseEntity<List<Article>> allArticles() {
