@@ -21,7 +21,8 @@ public class ArticleController {
     }
     @GetMapping("/api/articles/{articleId}") // 글 상세보기
     public Article detailArticle(@PathVariable long articleId) {
-        return new Article(articleId, "상세보기 조회 테스트", "테스트에요", 0);
+        // 서비스의 getArticleById(long articleId) 함수를 호출하여 구현
+        return articleService.getArticleById(articleId);
     }
 
     // @PostMapping("/api/articles") // 글 등록

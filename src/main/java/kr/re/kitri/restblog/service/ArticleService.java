@@ -21,4 +21,10 @@ public class ArticleService {
 
         return articles;
     }
+
+    // 2. 글 상세보기 by ID
+    public Article getArticleById(long id) {
+        // 원래는 글데이터를 DB에서 조회 후 데이터를 전송, but 지금은 페이크로 전달
+        return new Article(id, "페이크", "구라", 30);
+    }
 }
