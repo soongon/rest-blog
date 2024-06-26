@@ -43,7 +43,7 @@ public class ArticleController {
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping("/articles/{id}/increment-hitcount")
+    @PatchMapping("/api/articles/{id}/increment-hitcount")
     public ResponseEntity<Void> incrementHitCount(@PathVariable long id) {
         articleService.increaseView(id);
         return ResponseEntity.noContent().build();
