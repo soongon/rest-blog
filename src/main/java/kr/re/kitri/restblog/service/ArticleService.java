@@ -5,6 +5,7 @@ import kr.re.kitri.restblog.repository.ArticleRepository;
 import kr.re.kitri.restblog.repository.ArticleRepository_old;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Iterator;
 import java.util.List;
@@ -44,6 +45,7 @@ public class ArticleService {
     }
 
     // 5. 조회수 1증가
+    @Transactional
     public void increaseView(long id) {
         articleRepository.increaseViewCount(id);
     }
