@@ -42,4 +42,10 @@ public class ArticleController {
         articleService.removeArticle(articleId);
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/articles/{id}/increment-hitcount")
+    public ResponseEntity<Void> incrementHitCount(@PathVariable long id) {
+        articleService.increaseView(id);
+        return ResponseEntity.noContent().build();
+    }
 }

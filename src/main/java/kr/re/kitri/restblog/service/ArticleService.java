@@ -42,4 +42,9 @@ public class ArticleService {
     public void removeArticle(long articleId) {
         articleRepository.deleteById(articleId);
     }
+
+    // 5. 조회수 1증가
+    public void increaseView(long id) {
+        articleRepository.increaseViewCount(id);
+    }
 }
