@@ -28,7 +28,6 @@ public class ArticleController {
         // 서비스의 getArticleById(long articleId) 함수를 호출하여 구현
         return ResponseEntity.ok().body(articleService.getArticleById(articleId));
     }
-
     @PostMapping("/api/articles") // 글 등록 .. json 글데이터를 자바 객체(모델)로 변환
     public ResponseEntity<Article> registArticle(@RequestBody Article article) {
         return ResponseEntity.status(HttpStatus.CREATED).body(articleService.registArticle(article));
@@ -37,7 +36,6 @@ public class ArticleController {
     public ResponseEntity<Article> modifyArticle(@RequestBody Article article) {
         return ResponseEntity.ok().body(articleService.modifyArticle(article));
     }
-
     @DeleteMapping("/api/articles/{articleId}") // 글 삭제
     public ResponseEntity<Void> removeArticle(@PathVariable long articleId) {
         articleService.removeArticle(articleId);
