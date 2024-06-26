@@ -19,4 +19,5 @@ public class Article {
     private String title;
     private String content;
     private long views;
+    private long memberId;
 }

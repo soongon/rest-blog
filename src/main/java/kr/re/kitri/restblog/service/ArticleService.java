@@ -3,6 +3,7 @@ package kr.re.kitri.restblog.service;
 import kr.re.kitri.restblog.model.Article;
 import kr.re.kitri.restblog.repository.ArticleRepository;
 import kr.re.kitri.restblog.repository.ArticleRepository_old;
+import kr.re.kitri.restblog.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
+    private final MemberRepository memberRepository;
 
     // 실제 기능(설계상의 기능, 요구사항)이 포함된다.
     // 1. 글 전체보기.
@@ -30,8 +32,13 @@ public class ArticleService {
     }
 
     // 3. 글 등록
+    // 글을 등록하고, 글에 작성자가 있으면(memeberId 가 있으면) 멤버의 포인트를 증가 시킨다.
+    @Transactional
     public Article registArticle(Article article) {
-        return articleRepository.save(article);
+        Article a = articleRepository.save(article);
+        if (article.getMemberId() != 0)
+            memberRepository.increaseMemberPoints(article.getMemberId());
+        return a;
     }
 
     // 4. 글 수정
