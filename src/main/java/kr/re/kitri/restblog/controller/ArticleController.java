@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,13 +19,13 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @GetMapping("/api/articles") // 글 전체보기
-    public ResponseEntity<List<Article>> allArticles() {
+    public ResponseEntity<Iterable<Article>> allArticles() {
         // 전체글조회 하는 기능을 가진 서비스를 호출
-        List<Article> articles = articleService.getArticles();
+        Iterable<Article> articles = articleService.getArticles();
         return ResponseEntity.ok().body(articles);
     }
     @GetMapping("/api/articles/{articleId}") // 글 상세보기
-    public ResponseEntity<Article> detailArticle(@PathVariable long articleId) {
+    public ResponseEntity<Optional<Article>> detailArticle(@PathVariable long articleId) {
         // 서비스의 getArticleById(long articleId) 함수를 호출하여 구현
         return ResponseEntity.ok().body(articleService.getArticleById(articleId));
     }
